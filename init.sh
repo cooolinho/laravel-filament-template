@@ -1,6 +1,14 @@
 #!/bin/bash
 
-CONTAINER_NAME="$1"
+# load .env file
+if [ -f .env ]; then
+    export $(grep -v '^#' .env | xargs)
+fi
+
+# load name from .env file
+CONTAINER_NAME=${LARAVEL_CONTAINER_NAME:-"laravel-filament-template"}
+
+echo "Container Name: $CONTAINER_NAME"
 
 ### docker dependencies
 composer install --ignore-platform-reqs

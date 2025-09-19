@@ -17,7 +17,7 @@ LARAVEL_CONTAINER_NAME=laravel-filament-template
 
 ### run init script
 ```bash
-sh init.sh laravel-filament-template
+sh init.sh
 ```
 
 ## 3. Open Admin Dashboard
