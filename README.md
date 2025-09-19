@@ -28,8 +28,8 @@ Password: secret
 ```
 
 ## References
-- [Filament 3](https://filamentadmin.com/)
-- [Laravel 11](https://laravel.com/)
+- [Filament 4](https://filamentadmin.com/)
+- [Laravel 12](https://laravel.com/)
 - [Docker](https://www.docker.com/)
 - [Docker-Compose](https://docs.docker.com/compose/)
 - [MySQL](https://hub.docker.com/r/mysql/mysql-server)
