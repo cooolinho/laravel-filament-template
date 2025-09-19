@@ -22,3 +22,5 @@ yarn.lock
 /.nova
 /.vscode
 /.zed
+
+public/*/filament
