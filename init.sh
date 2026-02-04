@@ -6,7 +6,7 @@ if [ -f .env ]; then
 fi
 
 # load name from .env file
-CONTAINER_NAME=${LARAVEL_CONTAINER_NAME:-"laravel-filament-template"}
+CONTAINER_NAME=${LARAVEL_CONTAINER_NAME:-"laravel"}
 
 echo "Container Name: $CONTAINER_NAME"
 

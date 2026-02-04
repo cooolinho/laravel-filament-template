@@ -12,7 +12,7 @@ cp .env.example .env
 ```
 ### set your own LARAVEL_CONTAINER_NAME in .env file
 ```bash
-LARAVEL_CONTAINER_NAME=laravel-filament-template
+LARAVEL_CONTAINER_NAME=laravel
 ```
 
 ### run init script
@@ -28,12 +28,10 @@ Password: secret
 ```
 
 ## References
-- [Filament 4](https://filamentadmin.com/)
+- [Filament 5](https://filamentadmin.com/)
 - [Laravel 12](https://laravel.com/)
 - [Docker](https://www.docker.com/)
 - [Docker-Compose](https://docs.docker.com/compose/)
 - [MySQL](https://hub.docker.com/r/mysql/mysql-server)
 - [Redis](https://hub.docker.com/_/redis)
-- [meilisearch](https://hub.docker.com/r/getmeili/meilisearch)
 - [mailpit](https://hub.docker.com/r/axllent/mailpit)
-- [selenium](https://hub.docker.com/r/selenium/standalone-chromium)

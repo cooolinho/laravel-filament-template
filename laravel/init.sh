@@ -20,8 +20,3 @@ echo "✅ APP_KEY creation Complete"
 echo "➡️ Run migrations"
 php artisan migrate
 echo "✅ Run migrations complete"
-
-# run migrations
-echo "➡️ Create Admin User"
-php artisan make:filament-user --name=admin --email=admin@example.com --password=secret
-echo "✅ Create Admin User complete"
