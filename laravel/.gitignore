@@ -24,3 +24,6 @@ yarn.lock
 /.zed
 
 public/*/filament
+
+laravel/composer.lock
+laravel/package.lock
