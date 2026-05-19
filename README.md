@@ -10,14 +10,25 @@ git clone git@github.com:cooolinho/laravel-filament-template.git
 ```bash
 cp .env.example .env
 ```
-### set your own LARAVEL_CONTAINER_NAME in .env file
+### set your own LARAVEL_CONTAINER_NAME in .env file (optional)
 ```bash
 LARAVEL_CONTAINER_NAME=laravel
 ```
 
-### run init script
+### Run the following commands in terminal
 ```bash
-sh init.sh
+### docker dependencies
+composer install --ignore-platform-reqs
+
+### build and run docker containers
+docker-compose build
+docker-compose up -d
+
+## Laravel initialization
+docker exec -it laravel sh -c "sh init.sh"
+
+### restart container
+docker restart laravel
 ```
 
 ## 3. Open Admin Dashboard
@@ -28,8 +39,8 @@ Password: secret
 ```
 
 ## References
-- [Filament 5](https://filamentadmin.com/)
-- [Laravel 12](https://laravel.com/)
+- [Filament 5](https://filamentphp.com/docs/5.x/)
+- [Laravel 13](https://laravel.com/docs/13.x)
 - [Docker](https://www.docker.com/)
 - [Docker-Compose](https://docs.docker.com/compose/)
 - [MySQL](https://hub.docker.com/r/mysql/mysql-server)
