@@ -46,3 +46,5 @@ Password: secret
 - [MySQL](https://hub.docker.com/r/mysql/mysql-server)
 - [Redis](https://hub.docker.com/_/redis)
 - [mailpit](https://hub.docker.com/r/axllent/mailpit)
+
+Version: 5.0.1
