@@ -1,5 +1,5 @@
 {
     "require-dev": {
-        "laravel/sail": "^1.41"
+        "laravel/sail": "^1.59"
     }
 }
