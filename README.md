@@ -2,7 +2,11 @@
 
 ## 1. clone repository
 ```bash
+# main branch
 git clone git@github.com:cooolinho/laravel-filament-template.git
+
+# specific branch
+git clone -b 5.1.0 git@github.com:cooolinho/laravel-filament-template.git
 ```
 
 ## 2. Installation
@@ -17,15 +21,17 @@ LARAVEL_CONTAINER_NAME=laravel
 
 ### Run the following commands in terminal
 ```bash
-### docker dependencies
-composer install --ignore-platform-reqs
-
 ### build and run docker containers
 docker-compose build
 docker-compose up -d
 
 ## Laravel initialization
-docker exec -it laravel sh -c "sh init.sh"
+docker exec -it laravel bash -c "chmod -R 777 /var/www/html"
+docker exec -it laravel bash -c "chown -R sail:sail /var/www/html"
+docker exec -it --user sail laravel sh -c "sh init.sh"
+
+# create admin user
+docker exec -it --user sail laravel sh -c "php artisan filament:user --name=Admin --email=admin@example.com --password=secret --panel=admin"
 
 ### restart container
 docker restart laravel
@@ -47,4 +53,4 @@ Password: secret
 - [Redis](https://hub.docker.com/_/redis)
 - [mailpit](https://hub.docker.com/r/axllent/mailpit)
 
-Version: 5.0.1
+Version: 5.1.0

@@ -2,7 +2,7 @@ services:
     laravel:
         container_name: "${LARAVEL_CONTAINER_NAME:-laravel}"
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: './docker'
             dockerfile: Dockerfile
             args:
                 WWWGROUP: "${WWWGROUP}"
@@ -20,14 +20,17 @@ services:
             IGNITION_LOCAL_SITES_PATH: "${PWD}"
         volumes:
             - './laravel:/var/www/html'
+            - './logs/laravel:/var/www/html/storage/logs'
+            - './logs/supervisord:/var/log/supervisor'
+            - './docker/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf'
             - 'laravel-vendor:/var/www/html/vendor'
-            - 'laravel-logs:/var/www/html/storage/logs'
         networks:
             - laravel_sail
         depends_on:
             - mysql
             - redis
             - mailpit
+
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -40,8 +43,7 @@ services:
             MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
-            - 'sail-mysql:/var/lib/mysql'
-            - './vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+            - 'laravel-mysql:/var/lib/mysql'
         networks:
             - laravel_sail
         healthcheck:
@@ -52,12 +54,13 @@ services:
                 - "-p${MYSQL_PASSWORD}"
             retries: 3
             timeout: 5s
+
     redis:
         image: 'redis:alpine'
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
-            - 'sail-redis:/data'
+            - 'laravel-cache:/data'
         networks:
             - laravel_sail
         healthcheck:
@@ -67,6 +70,7 @@ services:
                 - ping
             retries: 3
             timeout: 5s
+
     mailpit:
         image: 'axllent/mailpit:latest'
         ports:
@@ -74,15 +78,15 @@ services:
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - laravel_sail
+
 networks:
     laravel_sail:
         driver: bridge
+
 volumes:
-    sail-mysql:
+    laravel-mysql:
         driver: local
-    sail-redis:
+    laravel-cache:
         driver: local
     laravel-vendor:
-        driver: local
-    laravel-logs:
         driver: local

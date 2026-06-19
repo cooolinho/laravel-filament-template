@@ -5,7 +5,12 @@ echo "╔═══════════════════════�
 ║  ️ ➡️ Create .env file                              ║
 ║                                                    ║
 ╚════════════════════════════════════════════════════╝"
-cp .env.example .env
+if [ ! -f .env ]; then
+    cp .env.example .env
+    echo "✓ .env file created"
+else
+    echo "⊘ .env file already exists, skipping..."
+fi
 
 # -------------------------------------------------------------------------------- #
 
@@ -14,7 +19,12 @@ echo "╔═══════════════════════�
 ║  ️ ➡️ Installing vendor/                            ║
 ║                                                    ║
 ╚════════════════════════════════════════════════════╝"
-composer install --ignore-platform-reqs
+if [ ! -d vendor ] || [ -z "$(ls -A vendor)" ]; then
+    composer install --ignore-platform-reqs
+    echo "✓ Vendor installed"
+else
+    echo "⊘ Vendor already exists and is not empty, skipping..."
+fi
 
 # -------------------------------------------------------------------------------- #
 
@@ -32,7 +42,12 @@ echo "╔═══════════════════════�
 ║  ️ ➡️ Create APP_KEY 'php artisan key:generate'     ║
 ║                                                    ║
 ╚════════════════════════════════════════════════════╝"
-php artisan key:generate
+if grep -q "APP_KEY=$" .env || ! grep -q "APP_KEY=" .env; then
+    php artisan key:generate
+    echo "✓ APP_KEY generated"
+else
+    echo "⊘ APP_KEY is already set, skipping..."
+fi
 
 # -------------------------------------------------------------------------------- #
 
