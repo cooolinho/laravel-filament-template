@@ -30,7 +30,6 @@ services:
             - mysql
             - redis
             - mailpit
-
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -54,7 +53,6 @@ services:
                 - "-p${MYSQL_PASSWORD}"
             retries: 3
             timeout: 5s
-
     redis:
         image: 'redis:alpine'
         ports:
@@ -70,7 +68,6 @@ services:
                 - ping
             retries: 3
             timeout: 5s
-
     mailpit:
         image: 'axllent/mailpit:latest'
         ports:
@@ -78,11 +75,9 @@ services:
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - laravel_sail
-
 networks:
     laravel_sail:
         driver: bridge
-
 volumes:
     laravel-mysql:
         driver: local

@@ -44,6 +44,10 @@ E-Mmail:  admin@example.com
 Password: secret
 ```
 
+## Docs
+- [Project Definition](docs/index.md)
+- [TODO's](docs/todos.md)
+
 ## References
 - [Filament 5](https://filamentphp.com/docs/5.x/)
 - [Laravel 13](https://laravel.com/docs/13.x)
