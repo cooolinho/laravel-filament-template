@@ -6,7 +6,7 @@
 git clone git@github.com:cooolinho/laravel-filament-template.git
 
 # specific branch
-git clone -b 5.1.0 git@github.com:cooolinho/laravel-filament-template.git
+git clone -b 5.6.3.0 git@github.com:cooolinho/laravel-filament-template.git
 ```
 
 ## 2. Installation
@@ -57,4 +57,4 @@ Password: secret
 - [Redis](https://hub.docker.com/_/redis)
 - [mailpit](https://hub.docker.com/r/axllent/mailpit)
 
-Version: 5.1.0
+Version: 5.6.3.0
