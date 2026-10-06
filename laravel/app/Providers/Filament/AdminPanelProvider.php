@@ -56,8 +56,8 @@ class AdminPanelProvider extends PanelProvider
 
             // Database Notifications
             // https://filamentphp.com/docs/5.x/notifications/database-notifications
-            ->databaseNotifications(position: DatabaseNotificationsPosition::Topbar)
-            ->databaseNotificationsPolling('30s');
+            ->databaseNotificationsPolling('30s')
+            ->databaseNotifications(position: DatabaseNotificationsPosition::Topbar);
     }
 
     public function boot(): void
