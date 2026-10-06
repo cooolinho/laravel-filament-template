@@ -27,3 +27,8 @@ public/*/filament
 
 laravel/composer.lock
 laravel/package.lock
+
+/boost.json
+/.mcp.json
+/.claude/skills/
+/AGENTS.md
