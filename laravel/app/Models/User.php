@@ -15,14 +15,20 @@ class User extends Authenticatable
 
     // properties
     const id = 'id';
+
     const name = 'name';
+
     const email = 'email';
+
     const email_verified_at = 'email_verified_at';
+
     const password = 'password';
+
     const remember_token = 'remember_token';
 
     // timestamps;
     const created_at = 'created_at';
+
     const updated_at = 'updated_at';
 
     /**
