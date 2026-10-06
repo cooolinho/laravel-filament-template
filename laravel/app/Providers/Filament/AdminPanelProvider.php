@@ -2,26 +2,18 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Http\Middleware\Authenticate;
-use Filament\Actions\Action;
 use Filament\Enums\DatabaseNotificationsPosition;
-use Filament\Facades\Filament;
+use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Navigation\NavigationGroup;
-use Filament\Navigation\NavigationItem;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Support\Icons\Heroicon;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\URL;
@@ -64,9 +56,8 @@ class AdminPanelProvider extends PanelProvider
 
             // Database Notifications
             // https://filamentphp.com/docs/5.x/notifications/database-notifications
-            ->databaseNotifications()
-            ->databaseNotificationsPolling('30s')
-            ->databaseNotifications(position: DatabaseNotificationsPosition::Topbar);
+            ->databaseNotifications(position: DatabaseNotificationsPosition::Topbar)
+            ->databaseNotificationsPolling('30s');
     }
 
     public function boot(): void
@@ -82,9 +73,6 @@ class AdminPanelProvider extends PanelProvider
         }
     }
 
-    /**
-     * @return array
-     */
     private function getNavigationGroups(): array
     {
         return [];
@@ -92,8 +80,6 @@ class AdminPanelProvider extends PanelProvider
 
     /**
      * @link https://filamentphp.com/docs/5.x/navigation/user-menu
-     *
-     * @return array
      */
     private function getUserMenuItems(): array
     {
@@ -146,9 +132,6 @@ class AdminPanelProvider extends PanelProvider
         ];
     }
 
-    /**
-     * @return array
-     */
     private function getColors(): array
     {
         return [
